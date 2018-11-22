@@ -6,9 +6,9 @@
 </br></br>
 
 ## Robot - Clearpath Husky
-+ [Husky](https://www.clearpathrobotics.com/husky-unmanned-ground-vehicle-robot/) </br></br>
++ [Husky](https://www.clearpathrobotics.com/husky-unmanned-ground-vehicle-robot/)
 + For Turtlebot2 click [here](https://github.com/engcang/turtlebot2)
-+ For Turtlebot3 click [here](https://github.com/engcang/turtlebot3)
++ For Turtlebot3 click [here](https://github.com/engcang/turtlebot3) </br></br>
 
 ### ● MATLAB version
 + [Kinematic position Control]()
