@@ -42,7 +42,9 @@
   $ rosrun robot_upstart install husky_base/launch/base.launch --job husky_core --setup '/etc/ros/setup.bash'
   ~~~
   Reboot the Husky robot and then see the Green LED on status bar
-  
+  <p align="center">
+  <img src="https://github.com/engcang/image-files/blob/master/husky/green_LED.jpg" width="500"/>
+  </p>
   </br>
 
 ## ● Joystick install and setup
@@ -53,4 +55,8 @@
   $ sudo chmod a+rw /dev/input/js0
   ~~~
   </br>
++ When needed, Edit _**husky_control/launch/teleop.launch**_ file as [here](https://github.com/husky/husky/commit/862fd9c7df6bf3b57f9895f94e59003bcc460426) like below
+  <p align="center">
+  <img src="https://github.com/engcang/image-files/blob/master/husky/joystick.png" width="500"/>
+  </p>
 ## ● [Velodyne VLP16 install and setup](http://wiki.ros.org/velodyne/Tutorials/Getting%20Started%20with%20the%20Velodyne%20VLP16)
