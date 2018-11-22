@@ -3,7 +3,7 @@
 + For installation of ROS, click [here](https://github.com/engcang/Ubuntu_ROS_Installation/)
 </br></br>
 
-## Husky-ROS Installation and setup
+## ● Husky-ROS Installation and setup
 + [Original page](http://wiki.ros.org/husky_bringup/Tutorials/Install%20Husky%20Software%20%28Advanced%29)
 + Install ROS package
   ~~~shell
@@ -45,7 +45,7 @@
   
   </br>
 
-## Joystick install and setup
+## ● Joystick install and setup
 + Do bluetooth pairing
   after that give permission to access bluetooth controller
   ~~~shell
@@ -53,4 +53,4 @@
   $ sudo chmod a+rw /dev/input/js0
   ~~~
   </br>
-## [Velodyne VLP16 install and setup](http://wiki.ros.org/velodyne/Tutorials/Getting%20Started%20with%20the%20Velodyne%20VLP16)
+## ● [Velodyne VLP16 install and setup](http://wiki.ros.org/velodyne/Tutorials/Getting%20Started%20with%20the%20Velodyne%20VLP16)
