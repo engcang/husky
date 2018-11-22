@@ -11,13 +11,13 @@
   $ sudo apt-get install ros-kinetic-husky-robot
   $ sudo cp $(rospack find husky_bringup)/udev/*.rules /etc/udev/rules.d  
   ~~~
-  Install Husky packages and udev rules </br>
+  Install Husky packages and udev rules </br></br>
   
 + Make setup file and source it
   ~~~shell
   $ gedit /etc/ros/setup.bash 
   ~~~
-  **Use** gedit or **vi** to make setup.bash file and then type below as **original page** </br>
+  Use **gedit** or **vi** to make setup.bash file and then type below as **Original page** </br>
   ~~~shell
   # Mark location of self so that robot_upstart knows where to find the setup file.
   export ROBOT_SETUP=/etc/ros/setup.bash
@@ -47,9 +47,10 @@
 
 ## Joystick install and setup
 + Do bluetooth pairing
+  after that give permission to access bluetooth controller
   ~~~shell
   $ rosrun joy joy_node
-  $ sudo chmod a+rw /dev/input/jsX
+  $ sudo chmod a+rw /dev/input/js0
   ~~~
   </br>
 ## [Velodyne VLP16 install and setup](http://wiki.ros.org/velodyne/Tutorials/Getting%20Started%20with%20the%20Velodyne%20VLP16)
