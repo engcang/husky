@@ -11,8 +11,8 @@
   $ sudo apt-get install ros-kinetic-husky-robot
   $ sudo cp $(rospack find husky_bringup)/udev/*.rules /etc/udev/rules.d  
   ~~~
-  Install Husky packages and udev rules
-  </br>
+  Install Husky packages and udev rules </br>
+  
 + Make setup file and source it
   ~~~shell
   $ gedit /etc/ros/setup.bash 
