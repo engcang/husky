@@ -17,7 +17,7 @@
   ~~~shell
   $ gedit /etc/ros/setup.bash 
   ~~~
-  **Use** gedit or **vi** to make setup.bash file and then type below as **original page**
+  **Use** gedit or **vi** to make setup.bash file and then type below as **original page** </br>
   ~~~shell
   # Mark location of self so that robot_upstart knows where to find the setup file.
   export ROBOT_SETUP=/etc/ros/setup.bash
