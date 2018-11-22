@@ -3,7 +3,7 @@
 + For installation of ROS, click [here](https://github.com/engcang/Ubuntu_ROS_Installation/)
 </br></br>
 
-## ROS Installation and setup
+## Husky-ROS Installation and setup
 + [Original page](http://wiki.ros.org/husky_bringup/Tutorials/Install%20Husky%20Software%20%28Advanced%29)
 + Install ROS package
   ~~~shell
@@ -11,7 +11,7 @@
   $ sudo apt-get install ros-kinetic-husky-robot
   $ sudo cp $(rospack find husky_bringup)/udev/*.rules /etc/udev/rules.d  
   ~~~
-  Install Husky packages and udve rules
+  Install Husky packages and udev rules
   </br>
 + Make setup file and source it
   ~~~shell
@@ -42,9 +42,14 @@
   $ rosrun robot_upstart install husky_base/launch/base.launch --job husky_core --setup '/etc/ros/setup.bash'
   ~~~
   Reboot the Husky robot and then see the Green LED on status bar
+  
   </br>
 
 ## Joystick install and setup
-$ rosrun joy joy_node
-$ sudo chmod a+rw /dev/input/jsX
++ Do bluetooth pairing
+  ~~~shell
+  $ rosrun joy joy_node
+  $ sudo chmod a+rw /dev/input/jsX
+  ~~~
+  </br>
 ## [Velodyne VLP16 install and setup](http://wiki.ros.org/velodyne/Tutorials/Getting%20Started%20with%20the%20Velodyne%20VLP16)
