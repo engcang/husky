@@ -6,10 +6,7 @@
 </br></br>
 
 ## Robot - Clearpath Husky
-+ [Husky](https://www.clearpathrobotics.com/husky-unmanned-ground-vehicle-robot/) </br>
-
-## ROS-MATLAB and ROS-Python for Turtlebot2, mobile robots with ROS
-</br>
++ [Husky](https://www.clearpathrobotics.com/husky-unmanned-ground-vehicle-robot/) </br></br>
 
 ### ● MATLAB version
 + [Kinematic position Control]()
