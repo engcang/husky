@@ -128,7 +128,7 @@
   <img src="https://github.com/engcang/image-files/blob/master/husky/kinematic_py.gif" width="500"/>
   </p>
   </br>
-  Robot moves to (1,1) position from origin untill close enough </br>
+  Robot moves to (3,2) position from origin untill close enough </br>
   Gazebo simulation can be implemented as above clip by
   
   ~~~shell
