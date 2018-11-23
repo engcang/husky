@@ -16,7 +16,6 @@
 
 ### Nessecary :
 + [< Robotics System Toolbox >](https://kr.mathworks.com/help/robotics/classeslist.html)
-+ [< Support Package for Turtlebot-Based Robots >](https://kr.mathworks.com/help/supportpkg/turtlebotrobot/index.html)
 + Should start robot before running the MATLAB code by
   ~~~
   $ sudo service start husky_core
@@ -32,7 +31,6 @@
   rosinit('192.168.0.10'); % type your robot's IP
   robot = rospublisher('/husky_velocity_controller/cmd_vel'); % topic name is different with other robots
   velmsg = rosmessage(robot);
-
   odom = rossubscriber('/husky_velocity_controller/odom');
   ~~~
   </br>
