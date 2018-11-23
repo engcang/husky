@@ -6,8 +6,8 @@
 + 각각의 폴더와 브런치들에 자세한 README.md(설명)이 별도로 있습니다.
 
 </br></br>
-### Robot - Turtlebot3 from ROBOTIS
-+ [Turtlebot3](http://emanual.robotis.com/docs/en/platform/turtlebot3/overview/)
+### Robot - Husky from Clearpath
++ [Husky](https://www.clearpathrobotics.com/husky-unmanned-ground-vehicle-robot/)
 
 ### Referred to robot's modelling of paper : 
 + **A Stable Target-Tracking Control for Unicycle Mobile Robots**, Sung-On Lee, Young-Jo Cho, Myung Hwang-Bo, Bum-Jae You, Sang-Rok Oh, Proceedings of the 2000 IEEE/RSJ International Conference on Intelligent Robots and Systems 
@@ -19,9 +19,9 @@
 + [< Support Package for Turtlebot-Based Robots >](https://kr.mathworks.com/help/supportpkg/turtlebotrobot/index.html)
 + Should start robot before running the MATLAB code by
   ~~~
-  $ roslaunch turtlebot3_bringup turtlebot3_robot.launch
+  $ sudo service start husky_core
   ~~~
-  on the board connected with turtlebot3
+  on the board connected with husky (should be already implemented by correct installation)
 
 </br></br>
 ## Code breaking down
@@ -30,18 +30,15 @@
 
   ~~~MATLAB
   rosinit('192.168.0.10'); % type your robot's IP
-  tbot = turtlebot;
-  resetOdometry(tbot); % Reset robot's Odometry
-
-  robot = rospublisher('/cmd_vel'); % topic name is different with other robots
+  robot = rospublisher('/husky_velocity_controller/cmd_vel'); % topic name is different with other robots
   velmsg = rosmessage(robot);
 
-  odom = rossubscriber('/odom');
+  odom = rossubscriber('/husky_velocity_controller/odom');
   ~~~
   </br>
   This block initialize ROS connection and make nodes subscribes and publishes the messages under topics
   <p align="center">
-  <img src="https://github.com/engcang/image-files/blob/master/turtlebot3/kinematic_rqt_MAT.png" width="500"/>
+  <img src="https://github.com/engcang/image-files/blob/master/husky/rqt_kinematic_MATLAB.gif" width="500"/>
   </p>
 
   </br></br>
@@ -78,11 +75,11 @@
     velmsg.Linear.X = K1*rho*cos(phi);
     velmsg.Angular.Z = -K1*sin(phi)*cos(phi)-K2*phi;
 
-    if velmsg.Linear.X >= 0.22
-        velmsg.Linear.X=0.22;
+    if velmsg.Linear.X >= 1
+        velmsg.Linear.X=1;
     end
-    if velmsg.Linear.X <= -0.22
-        velmsg.Linear.X=-0.22;
+    if velmsg.Linear.X <= -1
+        velmsg.Linear.X=-1;
     end
     if velmsg.Angular.Z >= 2
         velmsg.Linear.Z=2;
@@ -93,7 +90,7 @@
     
     send(robot,velmsg); %sending input into real robot via ROS
     
-    odomdata = receive(odom,3);
+    odomdata = receive(odom);
     pose = odomdata.Pose.Pose;
     Ax = pose.Position.X;
     Ay = pose.Position.Y;
@@ -111,7 +108,7 @@
   </br>
   1.Using the modelling of the paper above, calculated the input by rho(distance between robot and goal position) and phi (subtraction between robot direction and direction from origin to goal position under World coordinate)
   
-  2.and then saturate the input into bound which is the hardware specification of Turtlebot3
+  2.and then saturate the input into bound which is the hardware specification of **Husky**
   
   3.send input to robot via ROS untill get closed to goal position within tolerance (0.02 meter in this code)
   
@@ -119,12 +116,12 @@
 ## Result clip using Gazebo
 </br>
   <p align="center">
-  <img src="https://github.com/engcang/image-files/blob/master/turtlebot3/kinematic_MATLAB.gif" width="500"/>
+  <img src="https://github.com/engcang/image-files/blob/master/husky/kinematic_MATLAB.gif" width="500"/>
   </p>
   </br>
-  Robot moves to (1,1) position from origin untill close enough</br>
+  Robot moves to (3,2) position from origin untill close enough</br>
   Gazebo simulation can be implemented as above clip by
   
   ~~~shell
-  $ roslaunch turtlebot3_gazebo turtlebot3_empty_world.launch 
+  $ roslaunch husky_gazebo husky_playpen.launch
   ~~~
