@@ -6,10 +6,10 @@ from math import pow,atan2,sqrt,sin,cos
 from tf.transformations import euler_from_quaternion
 import numpy as np 
 
-class turtlebot():
+class husky():
     def __init__(self):
         #Creating our node,publisher and subscriber
-        rospy.init_node('turtlebot_controller', anonymous=True)
+        rospy.init_node('husky_controller', anonymous=True)
         self.velocity_publisher = rospy.Publisher('/husky_velocity_controller/cmd_vel', Twist, queue_size=10)
         self.pose_subscriber = rospy.Subscriber('/husky_velocity_controller/odom', Odometry, self.callback)
         self.pose = Odometry()
@@ -57,7 +57,7 @@ class turtlebot():
         self.velocity_publisher.publish(vel_msg)
 
 if __name__ == '__main__':
-   x = turtlebot()
+   x = husky()
    while 1:
       try:
         x.move2goal()
