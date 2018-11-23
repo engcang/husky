@@ -6,8 +6,8 @@
 + 각각의 폴더와 브런치들에 자세한 README.md(설명)이 별도로 있습니다.
 </br></br>
 
-### Robot - Turtlebot3 from ROBOTIS
-+ [Turtlebot3](http://emanual.robotis.com/docs/en/platform/turtlebot3/overview/)
+### Robot - Husky from Clearpath
++ [Husky](https://www.clearpathrobotics.com/husky-unmanned-ground-vehicle-robot/)
 
 ### referred to robot's modelling of paper : 
 + **A Stable Target-Tracking Control for Unicycle Mobile Robots**, Sung-On Lee, Young-Jo Cho, Myung Hwang-Bo, Bum-Jae You, Sang-Rok Oh, Proceedings of the 2000 IEEE/RSJ International Conference on Intelligent Robots and Systems 
@@ -33,12 +33,12 @@
 + ROS connection :
 
   ~~~python
-  class turtlebot():
+  class husky():
     def __init__(self):
         #Creating our node,publisher and subscriber
         rospy.init_node('turtlebot_controller', anonymous=True)
-        self.velocity_publisher = rospy.Publisher('/cmd_vel', Twist, queue_size=10)
-        self.pose_subscriber = rospy.Subscriber('/odom', Odometry, self.callback)
+        self.velocity_publisher = rospy.Publisher('/husky_velocity_controller/cmd_vel', Twist, queue_size=10)
+        self.pose_subscriber = rospy.Subscriber('/husky_velocity_controller/odom', Odometry, self.callback)
         self.pose = Odometry()
         self.rate = rospy.Rate(10)
 
@@ -51,11 +51,11 @@
   ~~~
   </br>
 　This code block initializes ROS connection and make nodes subscribe and publishe the messages under topics </br>
-　like graph followed when _**x = turtlebot()**_ line inherit class _**callback**_ function is automatically implemented </br>
+　like graph followed when _**x = husky()**_ line inherit class _**callback**_ function is automatically implemented </br>
 　whenever _**'Odometry'**_ data comes from _**'/odom'**_ topic  
   
   <p align="center">
-  <img src="https://github.com/engcang/image-files/blob/master/turtlebot3/kinematic_rqt_py.png" width="600"/>
+  <img src="https://github.com/engcang/image-files/blob/master/husky/rqt_kinematic_py.gif" width="600"/>
   </p>
 
   </br></br>
@@ -110,14 +110,14 @@
 
   ~~~python
   if __name__ == '__main__':
-   x = turtlebot()
+   x = husky()
    while 1:
       try:
         x.move2goal()
       except:
         pass
   ~~~
-  After inherit _**turtlebot()**_ class, continuously moves robot to wanted position
+  After inherit _**husky()**_ class, continuously moves robot to wanted position
   </br>
  
   
@@ -125,12 +125,12 @@
 ## Result clip using Gazebo
 </br>
   <p align="center">
-  <img src="https://github.com/engcang/image-files/blob/master/turtlebot3/kinematic_python.gif" width="500"/>
+  <img src="https://github.com/engcang/image-files/blob/master/husky/kinematic_py.gif" width="500"/>
   </p>
   </br>
   Robot moves to (1,1) position from origin untill close enough </br>
   Gazebo simulation can be implemented as above clip by
   
   ~~~shell
-  $ roslaunch turtlebot3_gazebo turtlebot3_empty_world.launch 
+  $ roslaunch husky_gazebo husky_playpen.launch 
   ~~~
