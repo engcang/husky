@@ -49,7 +49,7 @@
 
 ## ● Joystick install and setup
 + Do bluetooth pairing
-  after that give permission to access bluetooth controller
++ After that, give permission to access bluetooth controller
   ~~~shell
   $ rosrun joy joy_node
   $ sudo chmod a+rw /dev/input/js0
