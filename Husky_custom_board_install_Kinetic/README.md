@@ -29,7 +29,7 @@
 
   ######
   # Pass through to the main ROS workspace of the system.
-  source /opt/ros/indigo/setup.bash
+  source /opt/ros/kinetic/setup.bash
   ~~~
   Source this setup file into **.bashrc** file and source it
   ~~~shell
